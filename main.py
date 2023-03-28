@@ -23,6 +23,7 @@ def write_to_file(compared_lines: set, file: str):
 
 
 if __name__ == "__main__":
-    same_lines, diff_lines = compare_files(*read_from_files("file1.txt", "file2.txt"))
-    write_to_file(same_lines, "same.txt")
-    write_to_file(diff_lines, "diff.txt")
+    same_lines, diff_lines = compare_files(*read_from_files("input\\file1.txt",
+                                                            "input\\file2.txt"))
+    write_to_file(same_lines, "output\\same.txt")
+    write_to_file(diff_lines, "output\\diff.txt")
