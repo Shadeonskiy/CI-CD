@@ -17,5 +17,12 @@ def compare_files(f1_info, f2_info) -> tuple:
     return same_lines, diff_lines
 
 
+def write_to_file(compared_lines: set, file: str):
+    with open(file, 'w') as file:
+        [file.write(line + '\n') for line in compared_lines]
+
+
 if __name__ == "__main__":
-    print(compare_files(*read_from_files("file1.txt", "file2.txt")))
+    same_lines, diff_lines = compare_files(*read_from_files("file1.txt", "file2.txt"))
+    write_to_file(same_lines, "same.txt")
+    write_to_file(diff_lines, "diff.txt")
