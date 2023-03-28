@@ -10,5 +10,12 @@ def clean_text(text: list[str]) -> list[str]:
     return [line.rstrip('\n') for line in text]
 
 
+def compare_files(f1_info, f2_info) -> tuple:
+    same_lines = set(f1_info) & set(f2_info)
+    diff_lines = set(f1_info) ^ set(f2_info)
+
+    return same_lines, diff_lines
+
+
 if __name__ == "__main__":
-    print(read_from_files("file1.txt", "file2.txt"))
+    print(compare_files(*read_from_files("file1.txt", "file2.txt")))
